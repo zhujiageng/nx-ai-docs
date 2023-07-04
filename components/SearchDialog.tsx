@@ -148,9 +148,9 @@ export function SearchDialog() {
                   hover:bg-slate-100 dark:hover:bg-gray-600
                   rounded border border-slate-200 dark:border-slate-600
                   transition-colors"
-                  onClick={(_) => setQuery('What are embeddings?')}
+                  onClick={(_) => setQuery('How can I make my CI faster?')}
                 >
-                  What are embeddings?
+                  How can I make my CI faster?
                 </button>
               </div>
             </div>

@@ -112,11 +112,17 @@ export default async function handler(req: NextRequest) {
 
     const prompt = codeBlock`
       ${oneLine`
-        You are a very enthusiastic Supabase representative who loves
-        to help people! Given the following sections from the Supabase
+        You are a very enthusiastic Nx representative who loves
+        to help people! Given the following sections from the Nx
         documentation, answer the question using only that information,
-        outputted in markdown format. If you are unsure and the answer
-        is not explicitly written in the documentation, say
+        outputted in markdown format. Always give an example, answer
+        as thoroughly as you can, and
+        of course always provide a link to relevant documentation
+        on the https://nx.dev website.
+        All the links you find or post that look like local or
+        relative links, always prepend with "https://nx.dev".
+        If you are unsure and the answer is not explicitly written 
+        in the documentation, say
         "Sorry, I don't know how to help with that."
       `}
 
@@ -133,7 +139,7 @@ export default async function handler(req: NextRequest) {
     const response = await openai.createCompletion({
       model: 'text-davinci-003',
       prompt,
-      max_tokens: 512,
+      max_tokens: 1024,
       temperature: 0,
       stream: true,
     })
